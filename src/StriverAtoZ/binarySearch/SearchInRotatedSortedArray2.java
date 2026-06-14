@@ -1,4 +1,4 @@
-package StriverAtoZ;
+package StriverAtoZ.binarySearch;
 
 public class SearchInRotatedSortedArray2 {
 
