@@ -2,25 +2,30 @@ public class Ds {
 
     public static void main(String[] args) {
 
-        int[] nums = {1,1,1,1,2,3,5,1};  // Sample array
-        int i=2,j=0;
-        boolean flag = false;
-        int n=nums.length;
-        Integer max = Integer.MIN_VALUE;
-
-        while(i<n) {
-            if (nums[i] == nums[i - 1] + nums[i - 2]) {
-                if (flag == false) {
-                    j = i - 2;
-                    flag=true;
-                }
-                max = Math.max(max, i-j + 1);
+        int[] nums = {1,1,1,0,0,0,1,1,1,1,0};  // Sample array
+        int k=2;
+        int n = nums.length;
+        int i=0,j=0;
+        int count=0;
+        while(j<n){
+            if(nums[i]==1){
+                count = Math.max(count,j-i+1);
+                j++;
+                continue;
             }
-            else {
-                flag=false;
+            if(nums[i]==0 && k>0){
+                count = Math.max(count,j-i+1);
+                k--;
+                j++;
+                continue;
+            }
+            while(nums[i]!=0){
+                i++;
             }
             i++;
+            count = Math.max(count,j-i+1);
+            j++;
         }
-        System.out.println(max);;
+        System.out.println(count);
     }
 }
