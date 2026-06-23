@@ -1,25 +1,33 @@
 package STACK;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class AestroidCollision {
     public static void main(String[] args) {
-        int[]asteroids = {10,2,-5};
-        int n = asteroids.length;
-        Stack<Integer> stack = new Stack<>();
-        stack.push(asteroids[n-1]);
-        for(int i=n-2;i>=0;i--){
-            while((!stack.isEmpty() && stack.peek()<0 && asteroids[i]>0)){
-                if(Math.abs(stack.peek())<asteroids[i]){
+        int[]arr= {8,-8};
+        int n = arr.length;
+        Stack<Integer>stack = new Stack<>();
+        for(int i=0;i<n;i++){
+            boolean destroyed = false;
+            while(!stack.isEmpty() && arr[i]<0 && stack.peek()>0){
+
+                if(stack.peek()<-arr[i]){
                     stack.pop();
                 }
+                else if(stack.peek()==-arr[i]){
+                    stack.pop();
+                    destroyed=true;
+                    break;
+                }
                 else{
+                    destroyed=true;
                     break;
                 }
             }
-            if((asteroids[i]>0 && stack.peek()>0)|| (asteroids[i]<0 && stack.peek()<0)|| (asteroids[i]<0 && stack.peek()>0)){
-                stack.push(asteroids[i]);
-                continue;
+
+            if(destroyed==false){
+                stack.push(arr[i]);
             }
         }
         System.out.println(stack);
