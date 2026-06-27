@@ -10,7 +10,6 @@ public class RemoveAdjacentDuplicate2 {
         int n = s.length();
         for(int i=0;i<n;i++){
             char ch= s.charAt(i);
-
         }
     }
 }
