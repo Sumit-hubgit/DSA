@@ -8,6 +8,8 @@ public class MaximumProductSubarray {
 //        if(n==1){
 //            return nums[0];
 //        }
+
+        
         for(int i=0;i<n;i++){
             if(nums[i]<0){
                 k++;
